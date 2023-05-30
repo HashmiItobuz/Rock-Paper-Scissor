@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background: rgb(63, 94, 251);
+    background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
+.player {
+    width: 20rem;
+}
+
+.score {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    align-items: center;
+    margin-left: 5rem;
+}
+
+@media screen and (min-width:1440px) {
+    .user {
+        position: absolute;
+        left: 20rem;
+    }
+
+    .comp {
+        position: absolute;
+        right: 19.8rem;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .user {
+        position: absolute;
+        left: 13rem;
+    }
+
+    .comp {
+        position: absolute;
+        right: 13rem;
+    }
+}

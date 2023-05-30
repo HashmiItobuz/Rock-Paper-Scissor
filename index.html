@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container d-flex flex-column justify-content-center align-items-center my-5">
+        <h3 class="text-white">Welcome to</h3>
+        <h1 class="text-white fw-bold">Rock, Paper, Scissors!</h1>
+        <div id="gameContainer" class="fs-3 text-warning mt-3"></div>
+        <div class="d-flex  my-5 gap-5" id="playerContainer">
+            <div class=" d-flex flex-column">
+                <div class="border border-2 border-white player">
+                    <h3 class="p-5 fw-bolder text-white text-center">Player</h3>
+                    <div class="d-flex justify-content-center gap-5 px-5 py-4">
+                        <img src="image/rock1.png" alt="rock image" height="50px" width="50px" id="rock">
+                        <img src="image/page2.png" alt="page image" height="50px" width="50px" id="paper">
+                        <img src="image/scissor3.png" alt="scissor image" height="50px" width="50px" id="scissor">
+                    </div>
+                </div>
+                <div class="text-center fs-2 text-white mt-3" id="playerChoice"></div>
+            </div>
+            <h3 class="text-white fw-bold fs-1 pt-5 mt-5">vs</h3>
+            <div>
+                <div class="border border-2 border-white player">
+                    <h3 class="p-5 fw-bolder text-white text-center">Computer</h3>
+                    <div class="d-flex justify-content-center gap-5 px-5 py-4" id="computerContainer">
+                        <img src="image/rock1.png" alt="rock image" height="50px" width="50px" id="rockIcon">
+                        <img src="image/page2.png" alt="page image" height="50px" width="50px" id="paperIcon">
+                        <img src="image/scissor3.png" alt="scissor image" height="50px" width="50px" id="scissorIcon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-white">Score</h2>
+        <div class="w-75 d-flex justify-content-center align-items-center score fs-1 text-white" id="scoreBoard">
+            <div class="p-3 bg-danger text-white user">
+                <h4>User</h4>
+            </div>
+            <div
+                class="border border-2 border-white px-5 py-4 w-25 d-flex justify-content-center align-items-center fs-1 text-white">
+                <span class="fs-1 text-white px-1" id="playerScore">0</span><span
+                    class="fs-1 text-white px-1">:</span><span class="fs-1 text-white" id="compScore">0</span>
+            </div>
+            <div class="p-3 bg-danger text-white comp">
+                <h4>Comp</h4>
+            </div>
+        </div>
+        <button class="px-5 py-3 fs-4 bg-gradient mt-5 rounded-5 border border-none" id="playButton">Play</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
