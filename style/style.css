@@ -28,26 +28,58 @@ body {
     display: none !important;
 }
 
-@media screen and (min-width:1440px) {
+.score-screen {
+    width:18rem;
+}
+
+.user {
+    position: absolute;
+    left: 19rem ;
+}
+
+.comp {
+    position: absolute;
+    right: 18rem ;
+}
+
+@media screen and (min-width:770px)  and (max-width:1024px){
     .user {
         position: absolute;
-        left: 20rem;
+        left: 10rem ;
     }
 
     .comp {
         position: absolute;
-        right: 19.8rem;
+        right: 10rem ;
+    }
+    .score-screen {
+        width:18rem;
     }
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:768px) {
     .user {
         position: absolute;
-        left: 13rem;
+        left: 5rem;
     }
 
     .comp {
         position: absolute;
-        right: 13rem;
+        right: 5rem;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width:425px) {
+    .user {
+        position: absolute;
+        left:-0.5rem;
+    }
+
+    .comp {
+        position: absolute;
+        right:-1rem;
+    }
+    .score-screen {
+        width:70%;
     }
 }
