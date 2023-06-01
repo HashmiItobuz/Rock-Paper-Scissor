@@ -24,6 +24,10 @@ body {
     margin-left: 5rem;
 }
 
+.game-box {
+    display: none !important;
+}
+
 @media screen and (min-width:1440px) {
     .user {
         position: absolute;

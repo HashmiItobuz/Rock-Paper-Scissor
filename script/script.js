@@ -1,55 +1,50 @@
-let startBtn = document.getElementById("playButton");
-let player = document.getElementById("playerChoice");
-let rockBtn = document.getElementById("rock");
-let paperBtn = document.getElementById("paper");
-let scissorBtn = document.getElementById("scissor");
-let compContainer = document.getElementById("computerContainer");
-let rockIcon = document.getElementById("rockIcon");
-let paperIcon = document.getElementById("paperIcon");
-let scissorIcon = document.getElementById("scissorIcon");
-let playerScore = document.getElementById("playerScore");
-let compScore = document.getElementById("compScore");
-let scoreBoard = document.getElementById("scoreBoard");
-let gameContainer = document.getElementById("gameContainer");
-let playerContainer = document.getElementById("playerContainer");
-let resultText = document.getElementById("result-text");
+const startBtn = document.getElementById("playButton");
+const player = document.getElementById("playerChoice");
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorBtn = document.getElementById("scissor");
+const computerContainer = document.getElementById("computerContainer");
+const rockIcon = document.getElementById("rockIcon");
+const paperIcon = document.getElementById("paperIcon");
+const scissorIcon = document.getElementById("scissorIcon");
+const playerScore = document.getElementById("playerScore");
+const computerScore = document.getElementById("compScore");
+const scoreBoard = document.getElementById("scoreBoard");
+const gameContainer = document.getElementById("gameContainer");
+const playerContainer = document.getElementById("playerContainer");
+const resultText = document.getElementById("result-text");
+const playAgainBtn = document.getElementById("playAgain");
+const gameEnd = document.getElementById("gameEnd");
 
 let result = 0;
+let playerPoint = 0;
+let computerPoint = 0;
 
-
-startBtn.addEventListener("click", () => {
-    player.innerText = "Make Your Move";
-    allBtns();
-});
+playAgainBtn.classList.add("hidden");
+startBtn.addEventListener("click", allBtns);
 
 function allBtns() {
+    document.getElementById("scoreBoard").classList.remove("game-box");
+
+    player.innerText = "Make Your Move";
     rockBtn.addEventListener("click", () => {
-        paperBtn.classList.add("hidden");
-        scissorBtn.classList.add("hidden");
         result = randomNumber();
-        gameOn(result);
-        rockScore(result);
+        gameOn();
+        rockScore();
     });
 
     paperBtn.addEventListener("click", () => {
-        rockBtn.classList.add("hidden");
-        paperBtn.classList.remove("hidden");
-        scissorBtn.classList.add("hidden");
         result = randomNumber();
-        gameOn(result);
-        paperScore(result);
+        gameOn();
+        paperScore();
     });
 
     scissorBtn.addEventListener("click", () => {
-        rockBtn.classList.add("hidden");
-        paperBtn.classList.add("hidden");
-        scissorBtn.classList.remove("hidden");
         result = randomNumber();
-        gameOn(result);
-        scissorScore(result);
+        gameOn();
+        scissorScore();
     });
 }
-
 
 function randomNumber(maxLimit = 3) {
     let rand = Math.random() * maxLimit + 1;
@@ -57,7 +52,7 @@ function randomNumber(maxLimit = 3) {
     return rand;
 }
 
-function gameOn(result) {
+function gameOn() {
     if (result === 1) {
         rockIcon.classList.remove("hidden");
         paperIcon.classList.add("hidden");
@@ -73,77 +68,67 @@ function gameOn(result) {
     }
 }
 
-let playerPoint = 0;
-let compPoint = 0;
-function rockScore(result) {
+function rockScore() {
     if (result === 1) {
-        console.log("Tie");
+
     } else if (result === 2) {
-        compPoint++;
-        compScore.innerHTML = compPoint;
+        computerPoint++;
+        computerScore.innerHTML = computerPoint;
     } else {
         playerPoint++;
         playerScore.innerHTML = playerPoint;
     }
-    display();
     pointReset();
 }
 
-function paperScore(result) {
+function paperScore() {
     if (result === 1) {
         playerPoint++;
         playerScore.innerHTML = playerPoint;
     } else if (result === 2) {
-        console.log("Tie");
+
     } else {
-        compPoint++;
-        compScore.innerHTML = compPoint;
+        computerPoint++;
+        computerScore.innerHTML = computerPoint;
     }
-    display();
     pointReset();
 }
 
-function scissorScore(result) {
+function scissorScore() {
     if (result === 1) {
-        compPoint++;
-        compScore.innerHTML = compPoint;
+        computerPoint++;
+        computerScore.innerHTML = computerPoint;
     } else if (result === 2) {
         playerPoint++;
         playerScore.innerHTML = playerPoint;
     } else {
-        console.log("Tie");
+
     }
-    display();
     pointReset();
-
-}
-
-function display() {
-    rockBtn.classList.remove("hidden");
-    paperBtn.classList.remove("hidden");
-    scissorBtn.classList.remove("hidden");
 }
 
 function pointReset() {
     if (playerPoint === 5) {
-        playerPoint = 0;
-        playerScore.innerHTML = playerPoint;
-        compPoint = 0;
-        compScore.innerHTML = compPoint;
-        scoreBoard.innerHTML = "Congratulation!!! You Win the game";
-        player.innerHTML = "";
+        gameEnd.innerHTML = "Congratulation!!! You Win the game";
+        document.getElementById("scoreBoard").classList.add("game-box");
+        startBtn.style.display = "none";
+        playAgainBtn.classList.remove("hidden");
     }
-    else if (compPoint === 5) {
-        playerPoint = 0;
-        playerScore.innerHTML = playerPoint;
-        compPoint = 0;
-        compScore.innerHTML = compPoint;
-        scoreBoard.innerHTML = "Computer Win the game";
-        player.innerHTML = "";
+    else if (computerPoint === 5) {
+        gameEnd.innerHTML = "Computer Win the game";
+        document.getElementById("scoreBoard").classList.add("game-box");
+        startBtn.style.display = "none";
+        playAgainBtn.classList.remove("hidden");
     }
 }
 
-
+playAgainBtn.addEventListener("click", () => {
+    playAgainBtn.classList.add("hidden");
+    startBtn.style.display = "block";
+    gameEnd.classList.add("hidden");
+    document.getElementById("scoreBoard").classList.add("game-box");
+    window.location.reload();
+});
 
 
 
